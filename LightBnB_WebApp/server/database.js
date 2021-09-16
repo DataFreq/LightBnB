@@ -77,12 +77,8 @@ exports.getAllReservations = getAllReservations;
 const getAllProperties = function(options, limit = 10) {
   return pool
     .query(`SELECT * FROM properties LIMIT $1`, [limit])
-    .then((result) => {
-      console.log(result.rows);
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
+    .then((result) => result.rows)
+    .catch((err) => err.message);
   
   // const limitedProperties = {};
   // for (let i = 1; i <= limit; i++) {
